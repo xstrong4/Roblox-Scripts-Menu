@@ -1,0 +1,227 @@
+--> By Lilybaeum#9164
+--> Credits to people who made inf jump, ctrl click tp, and infinite yield!
+--> thank you for using this script, have fun and enjoy!
+
+local library = loadstring(game:HttpGetAsync("https://pastebin.com/raw/HYcfs6KC"))()
+local UIS = game:GetService("UserInputService")
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+
+local MM = library:CreateWindow("Main Menu")
+local UNI = library:CreateWindow("Universal")
+local Credits = library:CreateWindow("Credits")
+
+MM:Section("Main features")
+
+local t1 = MM:Toggle('Gather Coins', {flag = "toggle1"})
+
+coroutine.wrap(function()
+    while wait() do
+        if MM.flags.toggle1 == true then
+            for i, v in pairs(game.Workspace.GameObjects:GetChildren()) do
+                if v.Name == "Credit" and v:IsA("Part") then
+                    firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").GameObjects.Credit,0)
+                    firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").GameObjects.Credit,1)
+                end
+            end
+        end
+    end
+end)()
+
+local t2 = MM:Toggle('Player ESP', {flag = "toggle2"})
+
+coroutine.wrap(function()
+    while wait() do
+        if MM.flags.toggle2 == true then
+            for i, v in pairs(game.Players:GetChildren()) do
+                if v ~= game.Players.LocalPlayer and not v.Character:FindFirstChild("Highlight") and not v.Character:FindFirstChild("ItScript") then
+                    local esp = Instance.new("Highlight")
+                    
+                    esp.Parent = v.Character
+                    esp.FillColor = Color3.fromRGB(255, 0, 0)
+                    esp.FillTransparency = 0
+                elseif v ~= game.Players.LocalPlayer and not v.Character:FindFirstChild("Highlight") and v.Character:FindFirstChild("ItScript") then
+                    local espIT = Instance.new("Highlight")
+                    
+                    espIT.Parent = v.Character
+                    espIT.FillColor = Color3.fromRGB(0, 0, 255)
+                    espIT.FillTransparency = 0
+                end
+            end
+        else
+            for i, v in pairs(game.Players:GetChildren()) do
+                if v ~= game.Players.LocalPlayer and v.Character:FindFirstChild("Highlight") and MM.flags.toggle2 == false then
+                    v.Character.Highlight:Destroy()
+                end
+            end
+        end
+    end
+end)()
+
+local t3 = MM:Toggle('Coin ESP', {flag = "toggle3"})
+
+coroutine.wrap(function()
+    while wait() do
+        if MM.flags.toggle3 == true then
+            for i, v in pairs(game.Workspace.GameObjects:GetChildren()) do
+                if v:IsA("Part") then
+                    local cESP = Instance.new("Highlight")
+                    
+                    cESP.Parent = v
+                    cESP.FillColor = Color3.fromRGB(0, 255, 0)
+                    cESP.FillTransparency = 0
+                end
+            end
+        else
+            for i, v in pairs(game.Workspace.GameObjects:GetChildren()) do
+                if v:IsA("Part") and v:FindFirstChild("Highlight") then
+                    v.Highlight:Destroy()
+                end
+            end
+        end
+    end
+end)()
+
+local t4 = MM:Toggle('Anti-Glue', {flag = "toggle4"})
+
+coroutine.wrap(function()
+    while wait() do
+        if MM.flags.toggle4 == true then
+            if game.Workspace.GameObjects:FindFirstChild("GlueServer") then
+                game.Workspace.GameObjects.GlueServer:Destroy()
+            end
+        end
+    end
+end)()
+
+MM:Section("Teleports")
+
+MM:Button("Safe Place", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-250, 500, 150)
+end)
+
+MM:Button("Spawn", function()
+    local Shamrock = game.Workspace.Map.SpawnLocations.Shamrock
+
+    local ShamrockCFrame =
+        {Shamrock.CFrame.x,
+        Shamrock.CFrame.y,
+        Shamrock.CFrame.z}
+
+    local a, b, c = table.unpack(ShamrockCFrame)
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(a, b, c)
+end)
+
+MM:Button("Coins", function()
+    for i, v in pairs(game.Workspace.GameObjects:GetChildren()) do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+        wait(0.05)
+    end
+end)
+
+MM:Button("IT teleport players", function() 
+    for i,v in pairs(game.Players:GetChildren()) do
+        if v ~= game.Players.LocalPlayer and v.PlayerData.InGame.Value then
+            wait(0.08)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
+        end
+    end
+end)
+
+UNI:Section("Sliders")
+
+local FOVSlider = UNI:Slider("WalkSpeed", {
+   min = 1;
+   max = 500;
+   flag = 'wspd'
+}, function(v)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v;
+end)
+
+local FOVSlider = UNI:Slider("JumpPower", {
+    min = 1;
+    max = 500;
+    flag = 'jmpp'
+ }, function(v)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = v;
+end)
+
+local FOVSlider = UNI:Slider("HipHeight", {
+    min = 1;
+    max = 500;
+    flag = 'hiph'
+ }, function(v)
+    game.Players.LocalPlayer.Character.Humanoid.HipHeight = v;
+end)
+
+local FOVSlider = UNI:Slider("Gravity", {
+    min = 1;
+    max = 500;
+    flag = 'grvty'
+ }, function(v)
+    Workspace.Gravity = v;
+end)
+
+local FOVSlider = UNI:Slider("FOV", {
+   min = math.floor(workspace.CurrentCamera.FieldOfView);
+   max = 120;
+   flag = 'fov'
+}, function(v)
+   workspace.CurrentCamera.FieldOfView = v;
+end)
+
+UNI:Section("Popular Scripts")
+
+UNI:Button("Infinite Yield", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+UNI:Button("Ctrl+Click TP", function()
+function GetCharacter()
+   return game.Players.LocalPlayer.Character
+end
+
+function Teleport(pos)
+   local Char = GetCharacter()
+   if Char then
+       Char:MoveTo(pos)
+   end
+end
+
+
+UIS.InputBegan:Connect(function(input)
+   if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+       Teleport(Mouse.Hit.p)
+   end
+end)
+end)
+
+UNI:Button("Infinite Jump", function()
+_G.JumpHeight = 50;
+ 
+function Action(Object, Function) if Object ~= nil then Function(Object); end end
+ 
+UIS.InputBegan:connect(function(UserInput)
+    if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then
+        Action(Player.Character.Humanoid, function(self)
+            if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then
+                Action(self.Parent.HumanoidRootPart, function(self)
+                    self.Velocity = Vector3.new(0, _G.JumpHeight, 0);
+                end)
+            end
+        end)
+    end
+end)
+end)
+
+Credits:Section("Script by")
+Credits:Section("xStrong#0484")
+Credits:Section("Thanks to use our projects")
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Important Message", 
+	Text = "Red = player, blue = IT, green = coin. Thx 4 using script"
+})
+
+--I'll never fucking obfuscate this script like a pussy
