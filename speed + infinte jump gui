@@ -11,7 +11,7 @@ getgenv().Theme = "DarkTheme"
     Sentinel
     Synapse
 ]]
-local Window = Library.CreateLib("Test", getgenv().Theme)
+local Window = Library.CreateLib("xS Gui", getgenv().Theme)
 local Tab = Window:NewTab("LocalPlayer")
 local Section = Tab:NewSection("Speed")
 Section:NewTextBox("Character speed", "Type in a number to make the speed u want", function(txt)
@@ -20,8 +20,15 @@ end)
 Section:NewSlider("speed but slider", "Yo", 500, 0, function(speed)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
 end)
-Section:NewButton("Infinite yield", "alot of better", function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+Section:NewButton("Infinite Jump", "alot of better", function()
+	
+check = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if check then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+
 end)
 Section:NewKeybind("Toggle ui", "makes the gui invisible, press again to make it visible", Enum.KeyCode.RightAlt, function()
 	Library:ToggleUI()
