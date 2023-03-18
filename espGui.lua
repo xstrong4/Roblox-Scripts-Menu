@@ -662,7 +662,8 @@ function OrionLib:MakeWindow(WindowConfig)
 		if Input.KeyCode == Enum.KeyCode.LeftAlt and UIHidden then
 			MainWindow.Visible = false
 			if Input.KeyCode == Enum.KeyCode.LeftAlt and UIHidden then
-				MainWindow.Visible = true
+				MainWindow.Visible = false
+				UIHidden = true
 			end
 		end
 	end)
