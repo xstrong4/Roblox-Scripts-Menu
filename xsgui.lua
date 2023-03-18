@@ -41,12 +41,6 @@ Tab4:AddButton({
 	Callback = function()
 		if game.PlaceId == 286090429 or 2753915549 or 537413528 or 2248408710 or 3101667897 or 142823291 or 8916037983 or 6284583030 or 7549229959 or 4951858512 or 5901548022 or 6677985923 or 7549229959205224386 or 8888615802 then
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/multi", true))()
-			OrionLib:MakeNotification({
-				Name = "Success",
-				Content = "Current game script has been found!",
-				Image = "rbxassetid://4483345998",
-				Time = 5
-			})
 		else
 			OrionLib:MakeNotification({
 				Name = "Error",
