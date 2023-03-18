@@ -658,15 +658,6 @@ function OrionLib:MakeWindow(WindowConfig)
 		WindowConfig.CloseCallback()
 	end)
 
-	AddConnection(UserInputService.InputBegan, function(Input)
-		if Input.KeyCode == Enum.KeyCode.LeftAlt and UIHidden then
-			MainWindow.Visible = false
-			if Input.KeyCode == Enum.KeyCode.LeftAlt and UIHidden then
-				MainWindow.Visible = false
-				UIHidden = true
-			end
-		end
-	end)
 
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
