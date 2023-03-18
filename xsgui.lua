@@ -354,15 +354,5 @@ local destroygui = Tab3:AddButton({
     end   
 })
 
-Tab3:AddBind({
-	Name = "Bind",
-	Default = Enum.KeyCode.E,
-	Hold = false,
-	window1 = false,
-	Callback = function()
-		orionion.Visible = false
-		orionionLib.Visible = false
-	end    
-})
 OrionLib:Init()
 ---
