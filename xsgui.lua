@@ -4,6 +4,13 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xST
 
 local Window = OrionLib:MakeWindow({Name = tostring("xS Gui"), HidePremium = false, SaveConfig = false})
 
+
+local Tab4 = Window:MakeTab({
+        Name = "Games Scripts",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+
 local Tab = Window:MakeTab({
         Name = "ESP",
         Icon = "rbxassetid://4483345998",
@@ -11,7 +18,7 @@ local Tab = Window:MakeTab({
 })
 	
 local Tab2 = Window:MakeTab({
-        Name = "Scripts",
+        Name = "Puplic Scripts",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = false
 })
@@ -20,7 +27,7 @@ local Tab3 = Window:MakeTab({
         Icon = "rbxassetid://4483345998",
         PremiumOnly = false
 })
-		
+
 getgenv().cham = false
 getgenv().nameESP = false
 getgenv().boxESP = false
@@ -29,8 +36,28 @@ getgenv().tracer = false
 getgenv().esp_loaded = false
 getgenv().Visibility = false
 
-		
-			
+Tab4:AddButton({
+	Name = "Get Current Game Script",
+	Callback = function()
+		if game.PlaceId == 286090429 or 2753915549 or 537413528 or 2248408710 or 3101667897 or 142823291 or 8916037983 or 6284583030 or 7549229959 or 4951858512 or 5901548022 or 6677985923 or 7549229959205224386 or 8888615802 then
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/multi", true))()
+			OrionLib:MakeNotification({
+				Name = "Success",
+				Content = "Current game script has been found!",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+		else
+			OrionLib:MakeNotification({
+				Name = "Error",
+				Content = "Sorry your current game doesn't have a hack script",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+		end
+	end
+})
+
 Tab:AddToggle({
     Name = "Visual",
     Default = getgenv().Visibility,
@@ -114,14 +141,20 @@ Tab:AddToggle({
 
 Tab2:AddSlider({
 	Name = "WalkSpeed",
-	Min = 20,
+	Min = 0,
 	Max = 500,
-	Default = 5,
+	Default = 20,
 	Color = Color3.fromRGB(50,0,0),
 	Increment = 1,
 	ValueName = "WalkSpeed",
 	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+		--game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+		getgenv().WalkSpeedValue = Value; --set your desired walkspeed here
+		local Player = game:service'Players'.LocalPlayer;
+		Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+		end)
+		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
 	end    
 })
 
