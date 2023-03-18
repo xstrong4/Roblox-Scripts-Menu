@@ -217,6 +217,12 @@ coroutine.wrap(setInfinityJumpButton)()
 Tab2:AddButton({
 	Name = "Airwalk",
 	Callback = function()
+			OrionLib:MakeNotification({
+				Name = "Airwalk",
+				Content = "You Clicked Airwalk, Done",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
 -----
 				local crtl = false
 
