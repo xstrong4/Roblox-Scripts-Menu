@@ -659,9 +659,12 @@ function OrionLib:MakeWindow(WindowConfig)
 	end)
 
 	AddConnection(UserInputService.InputBegan, function(Input)
-		if Input.KeyCode == Enum.KeyCode.LeftAlt and UIHidden then
-			MainWindow.Visible = true
-		        UIHidden = false
+		if Input.KeyCode == Enum.KeyCode.LeftAlt then
+			MainWindow.Visible = false
+			UIHidden = true
+			if Input.KeyCode == Enum.KeyCode.LeftAlt and UIHidden then
+				MainWindow.Visible = true
+			end
 		end
 	end)
 
