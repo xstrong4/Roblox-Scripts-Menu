@@ -1,0 +1,121 @@
+-- ARSENAL
+if game.PlaceId == 286090429 then
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Fender-scripts/main/arsenal1',true))()
+else
+print("WRONG GAME")
+end
+
+-- BLOX FRUIT
+if game.PlaceId ==  2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
+	--script 1
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/BloxFruit/main/MultiBloxFruit.lua'))()
+else
+print("WRONG GAME")
+end
+
+-- BUILD A BOAT
+if game.PlaceId == 537413528 then
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/XRoLLu/UWU/main/New%20BABFT'))()
+else
+print("WRONG GAME")
+end
+
+-- DESTRUCTION SIMULATOR
+if game.PlaceId == 2248408710 then
+	-- while wait() do
+		-- while wait() do
+				 -- game:GetService("ReplicatedStorage").Remotes.generateBoost:FireServer("Coins", 480, 99999999)
+		 -- end
+	-- end
+	loadstring(game:HttpGet("https://pastebin.com/raw/ssztBaQ2", true))()
+print("WRONG GAME")
+end
+
+-- Flee the Facility
+-- if game.PlaceId == 893973440 then
+	-- loadstring(game:HttpGet('https://rentry.co/9uqkr/raw'))()
+-- else
+-- print("WRONG GAME")
+-- end
+
+-- lEGENDS OF SPEED
+if game.PlaceId == 3101667897 then
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Fender-scripts/main/legends%20of%20speed1'),true))()
+else
+print("WRONG GAME")
+end
+
+-- MAD CITY2
+-- if game.PlaceId == 1224212277 then
+	-- getgenv().Priority = "ALL"
+	-- getgenv().ReduceLag = "Yes"
+	-- loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Fender-scripts/main/madcity1things', true))()
+-- else
+-- print("WRONG GAME")
+-- end
+
+-- MM2
+if game.PlaceId == 142823291 then
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/mm2-1/main/mm2script1'),true))()
+else
+print("WRONG GAME")
+end
+
+-- STARVING ARTISTS
+if game.PlaceId == 8916037983 then
+	-- Script 2
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/starving%20artist%20gui%231'),true))()
+else
+print("WRONG GAME")
+end
+
+-- PET SIMULATOR X
+if game.PlaceId == 6284583030 then
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/sinnx32/prx/main/Petsim")()
+else
+print("WRONG GAME")
+end
+
+-- SQUID GAME
+if game.PlaceId == 7549229959 or game.PlaceId == 7577073048 or game.PlaceId == 7540891731 then
+--No code
+else
+print("WRONG GAME")
+end
+
+-- VICTORY RACE
+if game.PlaceId == 4951858512 then 
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XRoLLu/UWU/main/Victory%20Race%20Obfuscated.exe"))()
+else
+print("WRONG GAME")
+end
+
+-- KARATE KICK SIMULATOR
+if game.PlaceId == 5901548022 then 
+	game.ReplicatedStorage.REvents.GainMoney:FireServer(9e99, game.Players.LocalPlayer.Character)
+else
+print("WRONG GAME")
+end
+
+-- Millionaire Empire Tycoon 
+if game.PlaceId == 6677985923 then 
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TweedLeak/Scripts/main/Millionaire-Tycoon"))()
+else
+print("WRONG GAME")
+end
+
+-- Hide and Seek Extreme
+if game.PlaceId == 7549229959205224386 then
+	--Script
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/Hide%20and%20Seek%20Extreme'))()
+else
+print("WRONG GAME")
+end
+
+-- Rainbow friends
+if game.PlaceId == 7549229959205224386 or game.PlaceId == 8888615802 then
+	--Script
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/Rainbow%20friends'))()
+else
+print("WRONG GAME")
+end
