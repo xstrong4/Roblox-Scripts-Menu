@@ -45,14 +45,14 @@ else
 print("WRONG GAME")
 end
 
--- MAD CITY2
--- if game.PlaceId == 1224212277 then
+-- Jailbreak
+if game.PlaceId == 606849621 then
 	-- getgenv().Priority = "ALL"
 	-- getgenv().ReduceLag = "Yes"
-	-- loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Fender-scripts/main/madcity1things', true))()
--- else
--- print("WRONG GAME")
--- end
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/alohabeach/Main/master/Scripts/JailbreakAutoRob.lua"))()
+else
+print("WRONG GAME")
+end
 
 -- MM2
 if game.PlaceId == 142823291 then
