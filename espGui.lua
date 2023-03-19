@@ -1759,6 +1759,12 @@ function OrionLib:MakeWindow(WindowConfig)
 	return TabFunction
 end   
 
+function Names111()
+	for i,v in pairs(game.Players:GetPlayers()) do
+	    local Char = v.Name
+	end
+end
+
 function OrionLib:Destroy()
 	Orion:Destroy()
 end
