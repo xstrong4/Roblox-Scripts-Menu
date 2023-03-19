@@ -52,9 +52,9 @@ Tab4:AddButton({
 })
 if game.PlaceId == 5 then
 	Tab4:AddButton({
-		Name = "Teleport to Collection",
+		Name = "Return items",
 		Callback = function()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(s)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(371.954956, 44.7499924, 131.384155, -0.65327853, -1.33609612e-08, -0.757117689, 4.64470702e-08, 1, -5.77239661e-08, 0.757117689, -7.28757215e-08, -0.65327853)
 		end    
 	})
 end
