@@ -158,6 +158,19 @@ Tab2:AddSlider({
 	end    
 })
 
+Tab2:AddSlider({
+	Name = "Hiplights",
+	Min = 0,
+	Max = 500,
+	Default = 0,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "add",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.HipHeight = Value
+	end    
+})
+
 Tab2:AddButton({
 	Name = "Infinite Jump",
 	Callback = function()
