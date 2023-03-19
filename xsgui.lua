@@ -4,7 +4,6 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xST
 
 local Window = OrionLib:MakeWindow({Name = tostring("xS Gui"), HidePremium = false, SaveConfig = false})
 
-
 local Tab4 = Window:MakeTab({
         Name = "Games Scripts",
         Icon = "rbxassetid://4483345998",
@@ -335,7 +334,20 @@ end)
 --
   	end    
 })
-		
+
+Tab2:AddTextbox({
+	Name = "Teleport To Player",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		targetUsername = Value
+
+		players = game:GetService("Players")
+		targetPlayer = players:FindFirstChild(targetUsername)
+		players.LocalPlayer.Character:MoveTo(targetPlayer.Character.HumanoidRootPart.Position)
+			end	  
+})
+
 local orionion = game:GetService("CoreGui"):FindFirstChild("Orion")
 
 local destroygui = Tab3:AddButton({
