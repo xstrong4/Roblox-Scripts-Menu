@@ -50,7 +50,14 @@ Tab4:AddButton({
 		end
 	end
 })
-
+if game.PlaceId == 5 then
+	Tab4:AddButton({
+		Name = "Teleport to Collection",
+		Callback = function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(s)
+		end    
+	})
+end
 Tab:AddToggle({
     Name = "Visual",
     Default = getgenv().Visibility,
@@ -347,6 +354,18 @@ Tab2:AddTextbox({
 		players.LocalPlayer.Character:MoveTo(targetPlayer.Character.HumanoidRootPart.Position)
 			end	  
 })
+
+
+Tab3:AddButton({
+	Name = "ReJoin Server",
+	Callback = function()
+		local tpservice= game:GetService("TeleportService")
+		local plr = game.Players.LocalPlayer
+
+		tpservice:Teleport(game.PlaceId, plr)
+  	end    
+})
+
 
 local orionion = game:GetService("CoreGui"):FindFirstChild("Orion")
 
