@@ -50,7 +50,7 @@ Tab4:AddButton({
 		end
 	end
 })
-if game.PlaceId == 5 then
+if game.PlaceId == 8888615802 then
 	Tab4:AddButton({
 		Name = "Return items",
 		Callback = function()
