@@ -157,12 +157,13 @@ Tab2:AddSlider({
 		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
 	end    
 })
---[[
+
+
 Tab2:AddSlider({
 	Name = "Hiplights",
 	Min = 0,
 	Max = 500,
-	Default = 0,
+	Default = 2,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "add",
@@ -170,7 +171,7 @@ Tab2:AddSlider({
 		game.Players.LocalPlayer.Character.Humanoid.HipHeight = Value
 	end    
 })
-]]
+
 
 Tab2:AddButton({
 	Name = "Infinite Jump",
