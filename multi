@@ -1,3 +1,4 @@
+local x = game.PlaceId
 -- ARSENAL
 if game.PlaceId == 286090429 then
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Fender-scripts/main/arsenal1',true))()
@@ -6,10 +7,10 @@ print("WRONG GAME")
 end
 
 -- BLOX FRUIT
-if game.PlaceId ==  2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
+if x ==  2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
 	--script 1
-	--loadstring(game:HttpGet('https://github.com/xSTronG30/BloxFruit/blob/main/SpeedHubX.lua'))()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/BloxFruit/main/MultiBloxFruit.lua'))()
+	loadstring(game:HttpGet('https://github.com/xSTronG30/BloxFruit/blob/main/SpeedHubX.lua'))()
+	--loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/BloxFruit/main/MultiBloxFruit.lua'))()
 else
 print("WRONG GAME")
 end
