@@ -1,406 +1,404 @@
-local lib = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
-local wait = lib.subs.Wait 
-local net = require(game:GetService("ReplicatedStorage").Modules.Network)
-local plr = game.Players.LocalPlayer
-local cha = plr.Character or plr.CharacterAdded:Wait()
-local hrp = cha:WaitForChild("HumanoidRootPart")
-local hum = cha:WaitForChild("Humanoid")
-local exclusions = {}
-local chunks = nil 
-local eggs = {} 
-local request = http_request or request or HttpPost or syn.request
 
-for i,v in pairs(game:GetService("Workspace").GameObjects.Eggs:GetChildren()) do 
-    if (not table.find(eggs, v.Name)) then 
-        table.insert(eggs, v.Name)
-        table.sort(eggs)
-    end 
-end 
+---
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/espGui.lua')))()
 
-for i,v in pairs(plr.PlayerScripts.Modules.Controllers:GetChildren()) do 
-    if string.find(v.Name, "0.") then 
-        chunks = require(v) 
-    end 
-end 
+local Window = OrionLib:MakeWindow({Name = tostring("xS Gui"), HidePremium = false, SaveConfig = false})
 
-local function loadchunks()
-    for i,v in pairs(game.ReplicatedStorage.Chunks:GetChildren()) do 
-        chunks:UpdateFolder(v.Name, true)
-    end 
-end 
-
-plr.CharacterAdded:Connect(function(character)
-    cha = character 
-    hrp = cha:WaitForChild("HumanoidRootPart")
-    hum = cha:WaitForChild("Humanoid")
-end)
-
-local window = lib:CreateWindow({
-    Name = "Novaz#5792",
-    Themeable = {
-        Info = "Kalas A Skid",
-        Credit = false, 
-        Background = "",
-        Visible = true
-    }
+local Tab4 = Window:MakeTab({
+        Name = "Games Scripts",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
 })
 
-local main1 = window:CreateTab({
-    Name = "Main"
+local Tab = Window:MakeTab({
+        Name = "ESP",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+	
+local Tab2 = Window:MakeTab({
+        Name = "Puplic Scripts",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+})
+local Tab3 = Window:MakeTab({
+        Name = "Settings",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
 })
 
-local section1 = main1:CreateSection({
-    Name = "Main"
+getgenv().cham = false
+getgenv().nameESP = false
+getgenv().boxESP = false
+getgenv().tracer = false
+
+getgenv().esp_loaded = false
+getgenv().Visibility = false
+
+Tab4:AddButton({
+	Name = "Get Current Game Script",
+	Callback = function()
+		if game.PlaceId == 286090429 or 2753915549 or 537413528 or 2248408710 or 3101667897 or 142823291 or 8916037983 or 6284583030 or 7549229959 or 4951858512 or 5901548022 or 6677985923 or 7549229959205224386 or 8888615802 then
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/multi", true))()
+		else
+			OrionLib:MakeNotification({
+				Name = "Error",
+				Content = "Sorry your current game doesn't have a hack script",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+		end
+	end
+})
+if game.PlaceId == 8888615802 then
+	Tab4:AddButton({
+		Name = "Return items",
+		Callback = function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(371.954956, 44.7499924, 131.384155, -0.65327853, -1.33609612e-08, -0.757117689, 4.64470702e-08, 1, -5.77239661e-08, 0.757117689, -7.28757215e-08, -0.65327853)
+		end    
+	})
+end
+Tab:AddToggle({
+    Name = "Visual",
+    Default = getgenv().Visibility,
+    Callback = function(Value)
+        if getgenv().esp_loaded == false and Value == true then
+            getgenv().esp_loaded = true
+            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
+        end
+        getgenv().Visibility = Value
+    end   
 })
 
-local section4 = main1:CreateSection({
-    Name = "Eggs"
+Tab:AddToggle({
+    Name = "Box ESP",
+    Default = getgenv().Visibility,
+    Callback = function(Value)
+        if getgenv().esp_loaded == false and Value == true then
+            getgenv().esp_loaded = true
+            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
+        end
+        getgenv().boxESP = Value
+    end   
 })
 
-local section3 = main1:CreateSection({
-    Name = "Misc",
-    Side = "Right"
+
+Tab:AddToggle({
+    Name = "Name",
+    Default = getgenv().Visibility,
+    Callback = function(Value)
+        if getgenv().esp_loaded == false and Value == true then
+            getgenv().esp_loaded = true
+            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
+        end
+        getgenv().nameESP = Value
+    end   
 })
 
-local section2 = main1:CreateSection({
-    Name = "Settings",
-    Side = "Right"
+Tab:AddToggle({
+    Name = "Tracer",
+    Default = getgenv().Visibility,
+    Callback = function(Value)
+        if getgenv().esp_loaded == false and Value == true then
+            getgenv().esp_loaded = true
+            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
+        end
+        getgenv().tracer = Value
+    end   
 })
 
-local pers = section2:AddPersistence({
-    Name = "Load/Save Config"
+Tab:AddToggle({
+    Name = "Chams",
+    Default = getgenv().Visibility,
+    Callback = function(Value)
+        if getgenv().esp_loaded == false and Value == true then
+            getgenv().esp_loaded = true
+            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
+        end
+        getgenv().cham = Value
+    end   
 })
 
-local new = Instance.new("Folder")
-new.Name = "Fast Hatching"
-new.Parent = game.Players.LocalPlayer.Passes
 
-local new = Instance.new("Folder")
-new.Name = "Magnet Range"
-new.Parent = game.Players.LocalPlayer.Passes
-
-local oldm1 
-oldm1 = hookmetamethod(game, "__namecall", function(self, ...)
-    if self == plr and getnamecallmethod():lower() == "kick" and (not checkcaller()) then 
-        return
-    end
-    return oldm1(self, ...)
-end)
-
-wait(2)
-
-local oldmt 
-oldmt = hookmetamethod(game, "__index", function(self, index)
-    if self == hum and index == ("WalkSpeed" or "JumpPower") and (not checkcaller()) then 
-        return 1000000 
-    end 
-    return oldmt(self, index)
-end)
-
-function getclosestfirework(only, what)
-    local closest = nil 
-    local maxdist = math.huge
-    if game.Workspace.GameObjects.Areas:FindFirstChild(b) and game.Workspace.GameObjects.Areas[b]:FindFirstChild("Items") then
-    for i,v in pairs(game.Workspace.GameObjects.Areas[b].Items:GetChildren()) do 
-        if v:FindFirstChild("Hitbox") and v:FindFirstChild("Info") and v.Info:FindFirstChild("Health") and v.Info.Health.Value > 0 then
-            if only then 
-                local magnitude = (v.Hitbox.Position - hrp.Position).Magnitude 
-                if magnitude < maxdist then 
-                    maxdist = magnitude 
-                    closest = v
-                end 
-            elseif only == false and (string.find(v.Name, what)) then 
-                local magnitude = (v.Hitbox.Position - hrp.Position).Magnitude 
-                if magnitude < maxdist then 
-                    maxdist = magnitude 
-                    closest = v
-                end 
-            end 
-        end 
-    end 
-    end
-    return closest 
+function SendNote(message : string, time)
+    OrionLib:MakeNotification({
+        Name = "Title!",
+        Content = message,
+        Image = "rbxassetid://4483345998",
+        Time = time or 3
+    })
 end
 
-local function getclosest()
-    local closest = nil 
-    local maxdist = math.huge 
-    for i,v in pairs(game.Workspace.GameObjects.Areas:GetChildren()) do 
-        if v:IsA("Folder") and v:FindFirstChild("Items") then 
-            for i1,v1 in pairs(v:FindFirstChild("Items"):GetChildren()) do 
-                if v1:FindFirstChild("Hitbox") and v1:FindFirstChild("Info") and v1.Info:FindFirstChild("Health") and v1.Info.Health.Value > 0 then 
-                    local magnitude = (v1:FindFirstChild("Hitbox").Position - hrp.Position).Magnitude 
-                    if magnitude < maxdist then 
-                        maxdist = magnitude 
-                        closest = v1
-                    end 
-                end 
-            end 
-        end 
-    end 
-    return closest 
-end 
 
-function sendmsg(text, hex)
-local url = "https://discord.com/api/webhooks/981077857222664202/V0NjfeVZL6OwHE8RK9IuEU5lDXBMDEHxNSVymYggyn3yPcUM4Hhe0TcsZhC78FFf8TfZ"
-local data = {
-   ["content"] = "",
-   ["embeds"] = {
-       {
-           ["title"] = "Firework Simulator Notify",
-           ["description"] = text,
-           ["type"] = "rich",
-           ["color"] = hex,
-           ["timestamp"] = DateTime.now():ToIsoDate()
-       }
-   }
-}
-local encoded = game:GetService("HttpService"):JSONEncode(data)
 
-local headers = {
-   ["content-type"] = "application/json"
-}
-local enddata = {
-    Url = url, 
-    Body = encoded, 
-    Method = "POST", 
-    Headers = headers
-}
-request(enddata)
-end
-
-section1:AddToggle({
-    Name = "Auto Farm Area (All)",
-    Flag = "AFA",
-    Value = false,
-    Callback = function(state)
-        a = state
-        while a and task.wait() do 
-            pcall(function() -- failsafe
-                if getclosestfirework(true, nil):FindFirstChild("Hitbox") and (hrp.Position - getclosestfirework(true, nil).Hitbox.Position).Magnitude > 3 then 
-                    hrp.CFrame = getclosestfirework(true, nil):FindFirstChild("Hitbox").CFrame
-                    wait(.1)
-                    if (not qr) then 
-                        fireclickdetector(getclosestfirework(true, nil):FindFirstChild("Hitbox").ClickDetector)
-                    end 
-                end
-            end)
-        end 
-    end
+Tab:AddToggle({
+        Name = "Use Team-Color",
+        Default = false,
+        Callback = function(Value)
+            getgenv().useTeamColor = Value
+        end
 })
 
-section1:AddToggle({
-    Name = "Auto Farm Area (Target)",
-    Flag = "AFAS",
-    Value = false, 
-    Callback = function(state)
-        pq = state 
-        while pq and task.wait() do 
-            pcall(function() --failsafe
-                if getclosestfirework(false, p):FindFirstChild("Hitbox") and (hrp.Position - getclosestfirework(false, p).Hitbox.Position).Magnitude > 3 then 
-                    hrp.CFrame = getclosestfirework(false, p):FindFirstChild("Hitbox").CFrame
-                    wait(.1)
-                    if (not qr) then 
-                        fireclickdetector(getclosestfirework(false, p):FindFirstChild("Hitbox").ClickDetector)
-                    end 
-                end
-            end)
-        end 
-    end 
+Tab2:AddSlider({
+	Name = "WalkSpeed",
+	Min = 0,
+	Max = 500,
+	Default = 20,
+	Color = Color3.fromRGB(50,0,0),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		--game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+		getgenv().WalkSpeedValue = Value; --set your desired walkspeed here
+		local Player = game:service'Players'.LocalPlayer;
+		Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+		end)
+		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+	end    
 })
 
-game:GetService("RunService").RenderStepped:Connect(function()
-    if (a or pq) then 
-        task.wait(1)
-        loadchunks()
-    end 
-end) 
 
-section1:AddDropdown({
-    Name = "Select Target",
-    Flag = "Target",
-    Nothing = "nil",
-    List = {"Firework", "Gem"},
-    Callback = function(selected)
-        p = selected 
-    end 
+Tab2:AddSlider({
+	Name = "Hiplights",
+	Min = 0,
+	Max = 500,
+	Default = 2,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "add",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.HipHeight = Value
+	end    
 })
 
-local arealist = {}
-for i,v in pairs(game.Workspace.GameObjects.Areas:GetChildren()) do 
-    if (not table.find(arealist, v.Name)) then 
-        table.insert(arealist, v.Name)
-        table.sort(arealist)
-    end 
-end 
 
-section1:AddDropdown({
-    Name = "Select Area",
-    Flag = "Areas",
-    Nothing = "nil",
-    List = arealist,
-    Callback = function(selected)
-        b = selected 
-    end
-})
+Tab2:AddButton({
+	Name = "Infinite Jump",
+	Callback = function()
+	OrionLib:MakeNotification({
+		Name = "Infinite Jump",
+		Content = "You Clicked Infinite Jump, Done",
+		Image = "rbxassetid://4483345998",
+		Time = 5
+	})
+---
+	local infiniteJumpButton = Instance.new("TextButton")
+local function setInfinityJumpButton()
+    local script = Instance.new("LocalScript", infiniteJumpButton)
 
-section1:AddToggle({
-    Name = "Kill Aura",
-    Flag = "KA", 
-    Value = false, 
-    Callback = function(state)
-        qr = state
-    end
-})
+    infiniteJumpButton.Parent = tab_1
+    infiniteJumpButton.Name = "infinityJumpButton"
+    infiniteJumpButton.Text = "Infinity Jump [V]"
+    infiniteJumpButton.TextScaled = true
+    infiniteJumpButton.Font = Enum.Font.Ubuntu
+    infiniteJumpButton.BackgroundColor3 = Color3.new(1, 0, 0)
+    infiniteJumpButton.Position = UDim2.new(0, 10, 0, 190)
+    infiniteJumpButton.Size = UDim2.new(0.9, 0, 0.05, 0)
+    infiniteJumpButton.BorderColor3 = Color3.new(1, 1, 1)
 
-game:GetService("RunService").RenderStepped:Connect(function()
-    if qr then 
-        net:FireServer("Hit1", getclosest())
-    end 
-end)
+    local Mouse = game.Players.LocalPlayer:GetMouse()
+    local InfiniteJump = false
 
-section1:AddToggle({
-    Name = "Collect Drops",
-    Flag = "Coins",
-    Value = false, 
-    Callback = function(state)
-        c = state 
-        while c and task.wait() do 
-            for i,v in pairs(game.Workspace.Orbs:GetChildren()) do 
-                net:FireServer("CollectOrb", v.Name)
-                v:Destroy()
+    script.Parent.MouseButton1Click:Connect(function()
+        if InfiniteJump == false then
+            InfiniteJump = true
+            script.Parent.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        else
+            InfiniteJump = false
+            script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+        end
+    end)
+
+    Mouse.KeyDown:Connect(function(k)
+        if k == "v" then
+            if InfiniteJump == false then
+                InfiniteJump = true
+                script.Parent.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+            else
+                InfiniteJump = false
+                script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
             end
-        end 
-    end
-})
+        end
+    end)
 
-section3:AddButton({
-    Name = "Toggle Selected UI", 
-    Callback = function()
-        plr.PlayerGui.GameUI.Menus[q].Visible = not plr.PlayerGui.GameUI.Menus[q].Visible
-    end 
-})
-
-local uilist = {"Bank", "Golden", "Shiny", "Diamond", "Upgrades", "Merchant"}
-table.sort(uilist)
-
-section3:AddDropdown({
-    Name = "Select UI",
-    Flag = "UI",
-    Nothing = "nil",
-    List = uilist,
-    Callback = function(selected)
-        q = selected 
-    end
-})
-
-section3:AddSlider({
-    Name = "WalkSpeed",
-    Value = 16,
-    Min = 16, 
-    Max = 500,
-    Callback = function(num)
-        hum.WalkSpeed = num 
-    end 
-})
-
-section3:AddSlider({
-    Name = "JumpPower",
-    Value = 50,
-    Min = 50, 
-    Max = 500,
-    Callback = function(num)
-        hum.JumpPower = num 
-    end 
-})
-
-section4:AddToggle({
-    Name = "Loop Hatch",
-    Flag = "Hatch",
-    Value = false, 
-    Callback = function(state)
-        lol = state 
-        while lol and task.wait() do 
-            net:InvokeServer("OpenEgg", l, pql, exclusions)
-        end 
-    end 
-})
-
-section4:AddSlider({
-    Name = "Egg Amount",
-    Flag = "Egg Amount", 
-    Value = 2,
-    Min = 1, 
-    Max = 3,
-    Callback = function(amount)
-        pql = amount 
-    end 
-})
-
-section4:AddDropdown({
-    Name = "Select Egg",
-    Flag = "Eggss",
-    List = eggs, 
-    Callback = function(selected)
-        l = selected 
-    end 
-})
-
-section4:AddTextbox({
-    Name = "Exclude Pet Name", 
-    Value = "Case Sensitive",
-    Callback = function(args)
-        if tostring(args) ~= "Case Sensitive" then
-            exclusions[args] = true
-        end 
-    end
-})
-
-section4:AddButton({
-    Name = "View Exclusions", 
-    Callback = function()
-        for i,v in pairs(exclusions) do 
-            lib.Notify({
-                Text = i
-            })
-        end 
-    end 
-})
-
-section4:AddButton({
-    Name = "Clear Exclusions",
-    Callback = function()
-        table.clear(exclusions)
-    end 
-})
-
-local childadded
-local enabledd = false
-
-section4:AddButton({
-    Name = "Pet Webhook Notify",
-    Callback = function()
-        if enabledd == false then 
-            enabledd = true 
-            lib.Notify({
-                Text = "Pet Webhook Enabled"
-            })
-            childadded = plr.PlayerGui.Menus.Pets.Frame.MainList.ChildAdded:Connect(function(child)
-                task.wait(5)
-                if child:IsA("Frame") and child:WaitForChild("Frame") and child.Frame:WaitForChild("PetName") then 
-                    sendmsg("Hatched "..child.Frame:WaitForChild("PetName").Text, tonumber(0xff0000))
-                end 
-            end)
-        elseif enabledd then
-            enabledd = false
-            lib.Notify({
-                Text = "Pet Webhook Disabled"
-            })
-            childadded:Disconnect()
-        end 
-    end 
-})
-
-for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
-    v:Disable()
+    game:GetService("UserInputService").JumpRequest:Connect(function()
+        if InfiniteJump == true then
+            game:GetService "Players".LocalPlayer.Character:FindFirstChildOfClass 'Humanoid'
+                :ChangeState("Jumping")
+        end
+    end)
 end
+coroutine.wrap(setInfinityJumpButton)()
+
+
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Airwalk",
+	Callback = function()
+			OrionLib:MakeNotification({
+				Name = "Airwalk",
+				Content = "You Clicked Airwalk, Done",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+-----
+				local crtl = false
+
+
+		mouse = game.Players.LocalPlayer:GetMouse()
+
+
+		local air = Instance.new("Part", workspace)
+		air.Size = Vector3.new(7, 2, 3)
+		air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+		air.Transparency = 1
+		air.Anchored = true
+		air.Name = "Airwalk"
+
+
+		mouse.KeyDown:Connect(function(key)
+		   if key == "2" then
+		       air.Size = Vector3.new(4, -0.5, 3)
+		   end
+		end)
+
+		mouse.KeyUp:Connect(function(key)
+		   if key == "2" then
+		       air.Size = Vector3.new(7, 2, 3)
+		   end
+		end)
+
+
+		for i = 1, math.huge do
+		   air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+		   wait(0.01)
+		end
+----
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "NoClip",
+	Callback = function()
+	OrionLib:MakeNotification({
+		Name = "NoClip",
+		Content = "You clicked NoClip, Done",
+		Image = "rbxassetid://4483345998",
+		Time = 5
+	})
+--
+
+ local Noclip = nil
+local Clip = nil
+
+function noclip()
+	Clip = false
+	local function Nocl()
+		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+					v.CanCollide = false
+				end
+			end
+		end
+		wait(0.21) -- basic optimization
+	end
+	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+end
+
+function clip()
+	if Noclip then Noclip:Disconnect() end
+	Clip = true
+end
+
+noclip() -- to toggle noclip() and clip()					
+--
+  	end    
+})
+		
+Tab2:AddButton({
+	Name = "CTRL + TP",
+	Callback = function()
+	OrionLib:MakeNotification({
+		Name = "CTRL + TP",
+		Content = "You clicked CTRL + TP, Done",
+		Image = "rbxassetid://4483345998",
+		Time = 5
+	})
+--
+
+	local UIS = game:GetService("UserInputService")
+
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+
+
+function GetCharacter()
+   return game.Players.LocalPlayer.Character
+end
+
+function Teleport(pos)
+   local Char = GetCharacter()
+   if Char then
+       Char:MoveTo(pos)
+   end
+end
+
+
+UIS.InputBegan:Connect(function(input)
+   if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+       Teleport(Mouse.Hit.p)
+   end
+end)
+--
+  	end    
+})
+
+Tab2:AddTextbox({
+	Name = "Teleport To Player",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		targetUsername = Value
+
+		players = game:GetService("Players")
+		targetPlayer = players:FindFirstChild(targetUsername)
+		players.LocalPlayer.Character:MoveTo(targetPlayer.Character.HumanoidRootPart.Position)
+			end	  
+})
+
+
+Tab3:AddButton({
+	Name = "ReJoin Server",
+	Callback = function()
+		local tpservice= game:GetService("TeleportService")
+		local plr = game.Players.LocalPlayer
+
+		tpservice:Teleport(game.PlaceId, plr)
+  	end    
+})
+
+
+local orionion = game:GetService("CoreGui"):FindFirstChild("Orion")
+
+local destroygui = Tab3:AddButton({
+    Name = "Destroy GUI",
+    Callback = function()
+        orionion:Destroy()
+        OrionLib:Destroy()
+       
+        wait(1)
+       
+        OrionLib:MakeNotification({
+            Name = "Removing GUI...",
+            Content = "GUI is removed!",
+            Time = 3
+        })
+    end   
+})
+
+OrionLib:Init()
+---
