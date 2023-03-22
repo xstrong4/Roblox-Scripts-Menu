@@ -8,8 +8,8 @@ end
 -- BLOX FRUIT
 if game.PlaceId ==  2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
 	--script 1
-	loadstring(game:HttpGet('https://github.com/xSTronG30/BloxFruit/blob/main/SpeedHubX.lua'))()
-	--loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/BloxFruit/main/MultiBloxFruit.lua'))()
+	--loadstring(game:HttpGet('https://github.com/xSTronG30/BloxFruit/blob/main/SpeedHubX.lua'))()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/BloxFruit/main/MultiBloxFruit.lua'))()
 else
 print("WRONG GAME")
 end
