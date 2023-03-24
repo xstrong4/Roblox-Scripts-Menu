@@ -471,18 +471,18 @@ function OrionLib:MakeWindow(WindowConfig)
 	local UIHidden = false
 
 	WindowConfig = WindowConfig or {}
-	WindowConfig.Name = WindowConfig.Name or "xS Gui"
+	WindowConfig.Name = WindowConfig.Name or "Made By xStrong#0484"
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
 	WindowConfig.SaveConfig = WindowConfig.SaveConfig or false
 	WindowConfig.HidePremium = WindowConfig.HidePremium or false
 	if WindowConfig.IntroEnabled == nil then
 		WindowConfig.IntroEnabled = true
 	end
-	WindowConfig.IntroText = WindowConfig.IntroText or "xS Gui"
+	WindowConfig.IntroText = WindowConfig.IntroText or "Made By xStrong#0484"
 	WindowConfig.CloseCallback = WindowConfig.CloseCallback or function() end
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
-	WindowConfig.Icon = WindowConfig.Icon or "https://g.top4top.io/p_2639421ba1.png"
-	WindowConfig.IntroIcon = WindowConfig.IntroIcon or "https://g.top4top.io/p_2639421ba1.png"
+	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://12778443983"
+	WindowConfig.IntroIcon = WindowConfig.IntroIcon or "rbxassetid://12778443983"
 	OrionLib.Folder = WindowConfig.ConfigFolder
 	OrionLib.SaveCfg = WindowConfig.SaveConfig
 
