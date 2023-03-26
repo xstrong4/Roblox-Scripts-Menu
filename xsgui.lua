@@ -2,6 +2,7 @@
 ---
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/espGui.lua')))()
 
+
 local Window = OrionLib:MakeWindow({Name = tostring("xS Gui"), HidePremium = false, SaveConfig = false})
 
 local Tab4 = Window:MakeTab({
@@ -26,6 +27,7 @@ local Tab3 = Window:MakeTab({
         Icon = "rbxassetid://4483345998",
         PremiumOnly = false
 })
+
 
 getgenv().cham = false
 getgenv().nameESP = false
@@ -370,6 +372,18 @@ Tab2:AddTextbox({
 			end	  
 })
 
+Tab3:AddBind({
+	Name = "Bind",
+	Default = Enum.KeyCode.E,
+	Hold = false,
+	Callback = function()
+		if Window.Visible == true then
+			Window.Visible = false
+		else
+			Window.Visible = true
+		end
+	end    
+})
 
 Tab3:AddButton({
 	Name = "ReJoin Server",
@@ -380,7 +394,6 @@ Tab3:AddButton({
 		tpservice:Teleport(game.PlaceId, plr)
   	end    
 })
-
 
 local orionion = game:GetService("CoreGui"):FindFirstChild("Orion")
 
