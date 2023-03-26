@@ -1,153 +1,63 @@
+-- New example script written by wally
+-- You can suggest changes with a pull request or something
 
----
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/espGui.lua')))()
+local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
 
-local Window = OrionLib:MakeWindow({Name = tostring("xS Gui"), HidePremium = false, SaveConfig = false})
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
-local Tab4 = Window:MakeTab({
-        Name = "Games Scripts",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
+local Window = Library:CreateWindow({
+    -- Set Center to true if you want the menu to appear in the center
+    -- Set AutoShow to true if you want the menu to appear when it is created
+    -- Position and Size are also valid options here
+    -- but you do not need to define them unless you are changing them :)
+
+    Title = 'Example menu',
+    Center = true, 
+    AutoShow = true,
 })
 
-local Tab = Window:MakeTab({
-        Name = "ESP",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-})
-	
-local Tab2 = Window:MakeTab({
-        Name = "Puplic Scripts",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-})
-local Tab3 = Window:MakeTab({
-        Name = "Settings",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-})
+-- You do not have to set your tabs & groups up this way, just a prefrence.
+local Tabs = {
+    -- Creates a new tab titled Main
+    Main = Window:AddTab('Main'), 
+    ['Dev'] = Window:AddTab("Dev"), 
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
 
-getgenv().cham = false
-getgenv().nameESP = false
-getgenv().boxESP = false
-getgenv().tracer = false
+local lm = Tabs.Main:AddLeftGroupbox('Game Script')
 
-getgenv().esp_loaded = false
-getgenv().Visibility = false
 
-Tab4:AddButton({
-	Name = "Get Current Game Script",
-	Callback = function()
-		if game.PlaceId == 286090429 or 2753915549 or 537413528 or 2248408710 or 3101667897 or 142823291 or 8916037983 or 6284583030 or 7549229959 or 4951858512 or 5901548022 or 6677985923 or 7549229959205224386 or 8888615802 then
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/multi", true))()
-		else
-			OrionLib:MakeNotification({
-				Name = "Error",
-				Content = "Sorry your current game doesn't have a hack script",
-				Image = "rbxassetid://4483345998",
-				Time = 5
-			})
-		end
+lm:AddButton('Get Current Game Script', function()
+	if game.PlaceId == 286090429 or 2753915549 or 537413528 or 2248408710 or 3101667897 or 142823291 or 8916037983 or 6284583030 or 7549229959 or 4951858512 or 5901548022 or 6677985923 or 7549229959205224386 or 8888615802 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/multi", true))()
 	end
-})
-if game.PlaceId == 8888615802 then
-	Tab4:AddButton({
-		Name = "Return items",
-		Callback = function()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(371.954956, 44.7499924, 131.384155, -0.65327853, -1.33609612e-08, -0.757117689, 4.64470702e-08, 1, -5.77239661e-08, 0.757117689, -7.28757215e-08, -0.65327853)
-		end    
-	})
-end
-Tab:AddToggle({
-    Name = "Visual",
-    Default = getgenv().Visibility,
-    Callback = function(Value)
-        if getgenv().esp_loaded == false and Value == true then
-            getgenv().esp_loaded = true
-            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
-        end
-        getgenv().Visibility = Value
-    end   
-})
+end)
 
-Tab:AddToggle({
-    Name = "Box ESP",
-    Default = getgenv().Visibility,
-    Callback = function(Value)
-        if getgenv().esp_loaded == false and Value == true then
-            getgenv().esp_loaded = true
-            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
-        end
-        getgenv().boxESP = Value
-    end   
-})
+local TabBox = Tabs.Main:AddLeftTabbox() -- Add Tabbox on left side
+
+local Tab1 = TabBox:AddTab('Misc')
+local Tab2 = TabBox:AddTab('Misc')
 
 
-Tab:AddToggle({
-    Name = "Name",
-    Default = getgenv().Visibility,
-    Callback = function(Value)
-        if getgenv().esp_loaded == false and Value == true then
-            getgenv().esp_loaded = true
-            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
-        end
-        getgenv().nameESP = Value
-    end   
-})
+Tab1:AddSlider('WalkSpeed', {
+    Text = 'Set WalkSpeed',
 
-Tab:AddToggle({
-    Name = "Tracer",
-    Default = getgenv().Visibility,
-    Callback = function(Value)
-        if getgenv().esp_loaded == false and Value == true then
-            getgenv().esp_loaded = true
-            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
-        end
-        getgenv().tracer = Value
-    end   
-})
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
 
-Tab:AddToggle({
-    Name = "Chams",
-    Default = getgenv().Visibility,
-    Callback = function(Value)
-        if getgenv().esp_loaded == false and Value == true then
-            getgenv().esp_loaded = true
-            loadstring(game:HttpGet("https://github.com/xSTronG30/OpenSourceESPStuff/raw/main/espmain.lua", true))()
-        end
-        getgenv().cham = Value
-    end   
-})
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
 
+    Default = 20
+    Min = 0,
+    Max = 500
+    Rounding = 1,
 
-function SendNote(message : string, time)
-    OrionLib:MakeNotification({
-        Name = "Title!",
-        Content = message,
-        Image = "rbxassetid://4483345998",
-        Time = time or 3
-    })
-end
-
-
-
-Tab:AddToggle({
-        Name = "Use Team-Color",
-        Default = false,
-        Callback = function(Value)
-            getgenv().useTeamColor = Value
-        end
-})
-
-Tab2:AddSlider({
-	Name = "WalkSpeed",
-	Min = 0,
-	Max = 500,
-	Default = 20,
-	Color = Color3.fromRGB(50,0,0),
-	Increment = 1,
-	ValueName = "WalkSpeed",
-	Callback = function(Value)
 		--game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 		getgenv().WalkSpeedValue = Value; --set your desired walkspeed here
 		local Player = game:service'Players'.LocalPlayer;
@@ -155,51 +65,12 @@ Tab2:AddSlider({
 		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
 		end)
 		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
-	end    
+		
+    Compact = false, -- If set to true, then it will hide the label
 })
 
-
-Tab2:AddSlider({
-	Name = "Hiplights",
-	Min = 0,
-	Max = 500,
-	Default = 2,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "add",
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.HipHeight = Value
-	end    
-})
-
-
-Tab2:AddButton({
-	Name = "Infinite Jump",
-	Callback = function()
-	OrionLib:MakeNotification({
-		Name = "Infinite Jump",
-		Content = "You Clicked Infinite Jump, Done",
-		Image = "rbxassetid://4483345998",
-		Time = 5
-	})
+Tab1:AddButton('Infinite Jump', function()
 ---
-	local infiniteJumpButton = Instance.new("TextButton")
-local function setInfinityJumpButton()
-    local script = Instance.new("LocalScript", infiniteJumpButton)
-
-    infiniteJumpButton.Parent = tab_1
-    infiniteJumpButton.Name = "infinityJumpButton"
-    infiniteJumpButton.Text = "Infinity Jump [V]"
-    infiniteJumpButton.TextScaled = true
-    infiniteJumpButton.Font = Enum.Font.Ubuntu
-    infiniteJumpButton.BackgroundColor3 = Color3.new(1, 0, 0)
-    infiniteJumpButton.Position = UDim2.new(0, 10, 0, 190)
-    infiniteJumpButton.Size = UDim2.new(0.9, 0, 0.05, 0)
-    infiniteJumpButton.BorderColor3 = Color3.new(1, 1, 1)
-
-    local Mouse = game.Players.LocalPlayer:GetMouse()
-    local InfiniteJump = false
-
     script.Parent.MouseButton1Click:Connect(function()
         if InfiniteJump == false then
             InfiniteJump = true
@@ -231,174 +102,285 @@ local function setInfinityJumpButton()
 end
 coroutine.wrap(setInfinityJumpButton)()
 
-
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "Airwalk",
-	Callback = function()
-			OrionLib:MakeNotification({
-				Name = "Airwalk",
-				Content = "You Clicked Airwalk, Done",
-				Image = "rbxassetid://4483345998",
-				Time = 5
-			})
------
-				local crtl = false
-
-
-		mouse = game.Players.LocalPlayer:GetMouse()
-
-
-		local air = Instance.new("Part", workspace)
-		air.Size = Vector3.new(7, 2, 3)
-		air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
-		air.Transparency = 1
-		air.Anchored = true
-		air.Name = "Airwalk"
-
-
-		mouse.KeyDown:Connect(function(key)
-		   if key == "2" then
-		       air.Size = Vector3.new(4, -0.5, 3)
-		   end
-		end)
-
-		mouse.KeyUp:Connect(function(key)
-		   if key == "2" then
-		       air.Size = Vector3.new(7, 2, 3)
-		   end
-		end)
-
-
-		for i = 1, math.huge do
-		   air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
-		   wait(0.01)
-		end
-----
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "NoClip",
-	Callback = function()
-	OrionLib:MakeNotification({
-		Name = "NoClip",
-		Content = "You clicked NoClip, Done",
-		Image = "rbxassetid://4483345998",
-		Time = 5
-	})
---
-
- local Noclip = nil
-local Clip = nil
-
-function noclip()
-	Clip = false
-	local function Nocl()
-		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
-			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
-					v.CanCollide = false
-				end
-			end
-		end
-		wait(0.21) -- basic optimization
-	end
-	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
-end
-
-function clip()
-	if Noclip then Noclip:Disconnect() end
-	Clip = true
-end
-
-noclip() -- to toggle noclip() and clip()					
---
-  	end    
-})
-		
-Tab2:AddButton({
-	Name = "CTRL + TP",
-	Callback = function()
-	OrionLib:MakeNotification({
-		Name = "CTRL + TP",
-		Content = "You clicked CTRL + TP, Done",
-		Image = "rbxassetid://4483345998",
-		Time = 5
-	})
---
-
-	local UIS = game:GetService("UserInputService")
-
-local Player = game.Players.LocalPlayer
-local Mouse = Player:GetMouse()
-
-
-function GetCharacter()
-   return game.Players.LocalPlayer.Character
-end
-
-function Teleport(pos)
-   local Char = GetCharacter()
-   if Char then
-       Char:MoveTo(pos)
-   end
-end
-
-
-UIS.InputBegan:Connect(function(input)
-   if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
-       Teleport(Mouse.Hit.p)
-   end
-end)
---
-  	end    
-})
-
-Tab2:AddTextbox({
-	Name = "Teleport To Player",
-	Default = "",
-	TextDisappear = true,
-	Callback = function(Value)
-		targetUsername = Value
-
-		players = game:GetService("Players")
-		targetPlayer = players:FindFirstChild(targetUsername)
-		players.LocalPlayer.Character:MoveTo(targetPlayer.Character.HumanoidRootPart.Position)
-			end	  
-})
-
-
-Tab3:AddButton({
-	Name = "ReJoin Server",
-	Callback = function()
-		local tpservice= game:GetService("TeleportService")
-		local plr = game.Players.LocalPlayer
-
-		tpservice:Teleport(game.PlaceId, plr)
-  	end    
-})
-
-
-local orionion = game:GetService("CoreGui"):FindFirstChild("Orion")
-
-local destroygui = Tab3:AddButton({
-    Name = "Destroy GUI",
-    Callback = function()
-        orionion:Destroy()
-        OrionLib:Destroy()
-       
-        wait(1)
-       
-        OrionLib:MakeNotification({
-            Name = "Removing GUI...",
-            Content = "GUI is removed!",
-            Time = 3
-        })
-    end   
-})
-
-OrionLib:Init()
 ---
+end)
+-- Groupbox and Tabbox inherit the same functions
+-- except Tabboxes you have to call the functions on a tab (Tabbox:AddTab(name))
+local DevLeftBox = Tabs.Dev:AddLeftGroupbox('Groupbox')
+
+-- Tabboxes are a tiny bit different, but here's a basic example:
+
+
+-- You can now call AddToggle, etc on the tabs you added to the Tabbox
+
+-- Groupbox:AddToggle
+-- Arguments: Index, Options
+DevLeftBox:AddToggle('MyToggle', {
+    Text = 'This is a toggle',
+    Default = true, -- Default value (true / false)
+    Tooltip = 'This is a tooltip', -- Information shown when you hover over the toggle
+})
+
+
+-- Fetching a toggle object for later use:
+-- Toggles.MyToggle.Value
+
+-- Toggles is a table added to getgenv() by the library
+-- You index Toggles with the specified index, in this case it is 'MyToggle'
+-- To get the state of the toggle you do toggle.Value
+
+-- Calls the passed function when the toggle is updated
+Toggles.MyToggle:OnChanged(function()
+    -- here we get our toggle object & then get its value
+    print('MyToggle changed to:', Toggles.MyToggle.Value)
+end)
+
+-- This should print to the console: "My toggle state changed! New value: false"
+Toggles.MyToggle:SetValue(false)
+
+-- Groupbox:AddButton
+-- Arguments: Text, Callback
+
+local MyButton = DevLeftBox:AddButton('Button', function()
+    print('You clicked a button!')
+end)
+
+-- Button:AddButton
+-- Arguments: Text, Callback
+-- Adds a sub button to the side of the main button
+
+local MyButton2 = MyButton:AddButton('Sub button', function()
+    print('You clicked a sub button!')
+end)
+
+-- Button:AddTooltip
+-- Arguments: ToolTip
+
+MyButton:AddTooltip('This is a button')
+MyButton2:AddTooltip('This is a sub button')
+
+-- NOTE: You can chain the button methods!
+--[[
+    EXAMPLE: 
+
+    LeftGroupBox:AddButton('Kill all', Functions.KillAll):AddTooltip('This will kill everyone in the game!')
+        :AddButton('Kick all', Functions.KickAll):AddTooltip('This will kick everyone in the game!')
+]]
+
+-- Groupbox:AddLabel
+-- Arguments: Text, DoesWrap
+DevLeftBox:AddLabel('This is a label')
+DevLeftBox:AddLabel('This is a label\n\nwhich wraps its text!', true)
+
+-- Groupbox:AddDivider
+-- Arguments: None
+DevLeftBox:AddDivider()
+
+-- Groupbox:AddSlider
+-- Arguments: Idx, Options
+DevLeftBox:AddSlider('MySlider', {
+    Text = 'This is my slider!',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 5,
+    Rounding = 1,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+-- Options is a table added to getgenv() by the library
+-- You index Options with the specified index, in this case it is 'MySlider'
+-- To get the value of the slider you do slider.Value
+
+local Number = Options.MySlider.Value
+Options.MySlider:OnChanged(function()
+    print('MySlider was changed! New value:', Options.MySlider.Value)
+end)
+
+-- This should print to the console: "MySlider was changed! New value: 3"
+Options.MySlider:SetValue(3)
+
+-- Groupbox:AddInput
+-- Arguments: Idx, Info
+DevLeftBox:AddInput('MyTextbox', {
+    Default = 'My textbox!',
+    Numeric = false, -- true / false, only allows numbers
+    Finished = false, -- true / false, only calls callback when you press enter
+
+    Text = 'This is a textbox',
+    Tooltip = 'This is a tooltip', -- Information shown when you hover over the textbox
+
+    Placeholder = 'Placeholder text', -- placeholder text when the box is empty
+    -- MaxLength is also an option which is the max length of the text
+})
+
+Options.MyTextbox:OnChanged(function()
+    print('Text updated. New text:', Options.MyTextbox.Value)
+end)
+
+-- Groupbox:AddDropdown
+-- Arguments: Idx, Info
+
+DevLeftBox:AddDropdown('MyDropdown', {
+    Values = { 'This', 'is', 'a', 'dropdown' },
+    Default = 1, -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
+
+    Text = 'A dropdown',
+    Tooltip = 'This is a tooltip', -- Information shown when you hover over the textbox
+})
+
+Options.MyDropdown:OnChanged(function()
+    print('Dropdown got changed. New value:', Options.MyDropdown.Value)
+end)
+
+Options.MyDropdown:SetValue('This')
+
+-- Multi dropdowns
+DevLeftBox:AddDropdown('MyMultiDropdown', {
+    -- Default is the numeric index (e.g. "This" would be 1 since it if first in the values list)
+    -- Default also accepts a string as well
+
+    -- Currently you can not set multiple values with a dropdown
+
+    Values = { 'This', 'is', 'a', 'dropdown' },
+    Default = 1, 
+    Multi = true, -- true / false, allows multiple choices to be selected
+
+    Text = 'A dropdown',
+    Tooltip = 'This is a tooltip', -- Information shown when you hover over the textbox
+})
+
+Options.MyMultiDropdown:OnChanged(function()
+    -- print('Dropdown got changed. New value:', )
+    print('Multi dropdown got changed:')
+    for key, value in next, Options.MyMultiDropdown.Value do
+        print(key, value) -- should print something like This, true
+    end
+end)
+
+Options.MyMultiDropdown:SetValue({
+    This = true,
+    is = true,
+})
+
+-- Label:AddColorPicker
+-- Arguments: Idx, Info
+
+-- You can also ColorPicker & KeyPicker to a Toggle as well
+
+DevLeftBox:AddLabel('Color'):AddColorPicker('ColorPicker', {
+    Default = Color3.new(0, 1, 0), -- Bright green
+    Title = 'Some color', -- Optional. Allows you to have a custom color picker title (when you open it)
+})
+
+Options.ColorPicker:OnChanged(function()
+    print('Color changed!', Options.ColorPicker.Value)
+end)
+
+Options.ColorPicker:SetValueRGB(Color3.fromRGB(0, 255, 140))
+
+DevLeftBox:AddLabel('Keybind'):AddKeyPicker('KeyPicker', {
+    -- SyncToggleState only works with toggles. 
+    -- It allows you to make a keybind which has its state synced with its parent toggle
+
+    -- Example: Keybind which you use to toggle flyhack, etc.
+    -- Changing the toggle disables the keybind state and toggling the keybind switches the toggle state
+
+    Default = 'MB2', -- String as the name of the keybind (MB1, MB2 for mouse buttons)  
+    SyncToggleState = false, 
+
+
+    -- You can define custom Modes but I have never had a use for it.
+    Mode = 'Toggle', -- Modes: Always, Toggle, Hold
+
+    Text = 'Auto lockpick safes', -- Text to display in the keybind menu
+    NoUI = false, -- Set to true if you want to hide from the Keybind menu,
+})
+
+-- OnClick is only fired when you press the keybind and the mode is Toggle
+-- Otherwise, you will have to use Keybind:GetState()
+Options.KeyPicker:OnClick(function()
+    print('Keybind clicked!', Options.KeyPicker.Value)
+end)
+
+task.spawn(function()
+    while true do
+        wait(1)
+
+        -- example for checking if a keybind is being pressed
+        local state = Options.KeyPicker:GetState()
+        if state then
+            print('KeyPicker is being held down')
+        end
+
+        if Library.Unloaded then break end
+    end
+end)
+
+Options.KeyPicker:SetValue({ 'MB2', 'Toggle' }) -- Sets keybind to MB2, mode to Hold
+
+-- Library functions
+-- Sets the watermark visibility
+Library:SetWatermarkVisibility(true)
+
+-- Sets the watermark text
+Library:SetWatermark('By xStrong#0484')
+
+Library.KeybindFrame.Visible = true; -- todo: add a function for this
+
+Library:OnUnload(function()
+    print('Unloaded!')
+    Library.Unloaded = true
+end)
+
+-- UI Settings
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+-- I set NoUI so it does not show up in the keybinds menu
+MenuGroup:AddButton('Unload', function() Library:Unload() end) 
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'Insert', NoUI = true, Text = 'Menu keybind' }) 
+
+Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
+
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- ThemeManager (Allows you to have a menu theme system)
+
+-- Hand the library over to our managers
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+-- Ignore keys that are used by ThemeManager. 
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings() 
+
+-- Adds our MenuKeybind to the ignore list 
+-- (do you want each config to have a different menu key? probably not.)
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
+
+-- use case for doing it this way: 
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+ThemeManager:SetFolder('MyScriptHub')
+SaveManager:SetFolder('MyScriptHub/specific-game')
+
+-- Builds our config menu on the right side of our tab
+SaveManager:BuildConfigSection(Tabs['UI Settings']) 
+
+-- Builds our theme menu (with plenty of built in themes) on the left side
+-- NOTE: you can also call ThemeManager:ApplyToGroupbox to add it to a specific groupbox
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config 
+-- which has been marked to be one that auto loads!
