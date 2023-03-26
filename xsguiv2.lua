@@ -53,24 +53,46 @@ Tab1:AddSlider('WalkSpeed', {
     -- Rounding 2 - 5.15
     -- Rounding 3 - 5.155
 
-    Default = 20
+    Default = 20,
     Min = 0,
-    Max = 500
+    Max = 500,
     Rounding = 1,
-
-		--game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-		getgenv().WalkSpeedValue = Value; --set your desired walkspeed here
-		local Player = game:service'Players'.LocalPlayer;
-		Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
-		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
-		end)
-		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
 		
     Compact = false, -- If set to true, then it will hide the label
 })
+local Number = Options.WalkSpeed.Value
+Options.WalkSpeed:OnChanged(function(Value)
+
+		--game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	getgenv().WalkSpeedValue = Value; --set your desired walkspeed here
+	local Player = game:service'Players'.LocalPlayer;
+	Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+	Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+	end)
+	Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
 
 Tab1:AddButton('Infinite Jump', function()
----
+
+--
+		
+local infiniteJumpButton = Instance.new("TextButton")
+local function setInfinityJumpButton()
+    local script = Instance.new("LocalScript", infiniteJumpButton)
+
+    infiniteJumpButton.Parent = tab_1
+    infiniteJumpButton.Name = "infinityJumpButton"
+    infiniteJumpButton.Text = "Infinity Jump [V]"
+    infiniteJumpButton.TextScaled = true
+    infiniteJumpButton.Font = Enum.Font.Ubuntu
+    infiniteJumpButton.BackgroundColor3 = Color3.new(1, 0, 0)
+    infiniteJumpButton.Position = UDim2.new(0, 10, 0, 190)
+    infiniteJumpButton.Size = UDim2.new(0.9, 0, 0.05, 0)
+    infiniteJumpButton.BorderColor3 = Color3.new(1, 1, 1)
+
+    local Mouse = game.Players.LocalPlayer:GetMouse()
+    local InfiniteJump = false
+
     script.Parent.MouseButton1Click:Connect(function()
         if InfiniteJump == false then
             InfiniteJump = true
@@ -101,8 +123,9 @@ Tab1:AddButton('Infinite Jump', function()
     end)
 end
 coroutine.wrap(setInfinityJumpButton)()
-
----
+		
+--
+		
 end)
 -- Groupbox and Tabbox inherit the same functions
 -- except Tabboxes you have to call the functions on a tab (Tabbox:AddTab(name))
