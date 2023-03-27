@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet('https://pastebin.com/raw/vPWzQEC8'))()
+local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/DoorSub.lua'))()
 local plr = game.Players.LocalPlayer
 local char = plr.Character or plr.CharacterAdded:Wait()
 local hum = char:FindFirstChildOfClass("Humanoid") or char:WaitForChild("Humanoid")
