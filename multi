@@ -1,4 +1,11 @@
 local x = game.PlaceId
+-- DOORS
+if x == 6516141723 or x == 6839171747 then
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/Door.lua'))()
+else
+print("WRONG GAME")
+end
+
 -- ARSENAL
 if x == 286090429 then
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Fender-scripts/main/arsenal1',true))()
