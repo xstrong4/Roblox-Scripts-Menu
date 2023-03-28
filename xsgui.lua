@@ -3,6 +3,8 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/espGui.lua')))()
 
 
+local orionion = game:GetService("CoreGui"):FindFirstChild("Orion")
+
 local Window = OrionLib:MakeWindow({Name = tostring("xS Gui"), HidePremium = false, SaveConfig = false})
 
 local Tab4 = Window:MakeTab({
@@ -178,58 +180,31 @@ Tab2:AddSlider({
 Tab2:AddButton({
 	Name = "Infinite Jump",
 	Callback = function()
-	OrionLib:MakeNotification({
-		Name = "Infinite Jump",
-		Content = "You Clicked Infinite Jump, Done",
-		Image = "rbxassetid://4483345998",
-		Time = 5
-	})
+OrionLib:MakeNotification({
+	Name = "Start",
+	Content = "To Start Infinite Jump Press V",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
 ---
-	local infiniteJumpButton = Instance.new("TextButton")
 local function setInfinityJumpButton()
-    local script = Instance.new("LocalScript", infiniteJumpButton)
-
-    infiniteJumpButton.Parent = tab_1
-    infiniteJumpButton.Name = "infinityJumpButton"
-    infiniteJumpButton.Text = "Infinity Jump [V]"
-    infiniteJumpButton.TextScaled = true
-    infiniteJumpButton.Font = Enum.Font.Ubuntu
-    infiniteJumpButton.BackgroundColor3 = Color3.new(1, 0, 0)
-    infiniteJumpButton.Position = UDim2.new(0, 10, 0, 190)
-    infiniteJumpButton.Size = UDim2.new(0.9, 0, 0.05, 0)
-    infiniteJumpButton.BorderColor3 = Color3.new(1, 1, 1)
-
     local Mouse = game.Players.LocalPlayer:GetMouse()
     local InfiniteJump = false
-
-    script.Parent.MouseButton1Click:Connect(function()
-        if InfiniteJump == false then
-            InfiniteJump = true
-            script.Parent.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-        else
-            InfiniteJump = false
-            script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-        end
-    end)
-
     Mouse.KeyDown:Connect(function(k)
-        if k == "v" then
+        if k == 'v' then
             if InfiniteJump == false then
                 InfiniteJump = true
-                script.Parent.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
             else
                 InfiniteJump = false
-                script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
             end
         end
     end)
-
     game:GetService("UserInputService").JumpRequest:Connect(function()
         if InfiniteJump == true then
             game:GetService "Players".LocalPlayer.Character:FindFirstChildOfClass 'Humanoid'
                 :ChangeState("Jumping")
         end
-    end)
+	end)
 end
 coroutine.wrap(setInfinityJumpButton)()
 
@@ -377,10 +352,10 @@ Tab3:AddBind({
 	Default = Enum.KeyCode.E,
 	Hold = false,
 	Callback = function()
-		if Window.Visible == true then
-			Window.Visible = false
+		if orionion.Visible == true then
+			orionion.Visible = false
 		else
-			Window.Visible = true
+			orionion.Visible = true
 		end
 	end    
 })
@@ -394,8 +369,6 @@ Tab3:AddButton({
 		tpservice:Teleport(game.PlaceId, plr)
   	end    
 })
-
-local orionion = game:GetService("CoreGui"):FindFirstChild("Orion")
 
 local destroygui = Tab3:AddButton({
     Name = "Destroy GUI",
