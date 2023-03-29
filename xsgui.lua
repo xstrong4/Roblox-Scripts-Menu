@@ -1,7 +1,3 @@
-if game.PlaceId == 4490140733 then 
-	loadstring(game:HttpGet("https://system-exodus.com/scripts/MyRestaurant/MyRestaurant.lua", true))()
-else
-
 ---
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/espGui.lua')))()
 
@@ -391,5 +387,3 @@ local destroygui = Tab3:AddButton({
 
 OrionLib:Init()
 ---
-
-end
