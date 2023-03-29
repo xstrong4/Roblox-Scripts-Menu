@@ -109,6 +109,13 @@ else
 print("WRONG GAME")
 end
 
+-- MY RESTURANT
+if x == 5901548022 then 
+	loadstring(game:HttpGet("https://system-exodus.com/scripts/MyRestaurant/MyRestaurant.lua", true))()
+else
+print("WRONG GAME")
+end
+
 -- KARATE KICK SIMULATOR
 if x == 5901548022 then 
 	game.ReplicatedStorage.REvents.GainMoney:FireServer(9e99, game.Players.LocalPlayer.Character)
