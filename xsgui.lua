@@ -1,6 +1,4 @@
 ---
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/espGui.lua')))()
-
 
 local orionion = game:GetService("CoreGui"):FindFirstChild("Orion")
 
@@ -368,6 +366,8 @@ Tab3:AddButton({
 		tpservice:Teleport(game.PlaceId, plr)
   	end    
 })
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/espGui.lua')))()
 
 local destroygui = Tab3:AddButton({
     Name = "Destroy GUI",
