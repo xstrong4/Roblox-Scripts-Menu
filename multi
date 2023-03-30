@@ -1,5 +1,14 @@
 local x = game.PlaceId
 -- DOORS
+if x == 11966456877 then
+	--loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/Door.lua'))()
+	loadstring(game:HttpGet('https://pastebin.com/raw/7AtGDUx1'))()
+
+else
+print("WRONG GAME")
+end
+
+-- DOORS
 if x == 6516141723 or x == 6839171747 then
 	--loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/Door.lua'))()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/Doors2'))()
