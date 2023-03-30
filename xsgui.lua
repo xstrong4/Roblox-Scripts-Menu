@@ -164,7 +164,7 @@ Tab2:AddSlider({
 
 Tab2:AddSlider({
 	Name = "Hiplights",
-	Min = 0,
+	Min = 2,
 	Max = 500,
 	Default = 2,
 	Color = Color3.fromRGB(255,255,255),
