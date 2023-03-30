@@ -111,7 +111,7 @@ end
 
 -- MY RESTURANT
 if x == 4490140733 then 
-	loadstring(game:HttpGet("https://system-exodus.com/scripts/MyRestaurant/MyRestaurant.lua", true))()
+	loadstring(game:HttpGet("https://pastebin.com/raw/yL50dgdq", true))()
 else
 print("WRONG GAME")
 end
