@@ -44,6 +44,7 @@ end
 -- BUILD A BOAT
 if x == 537413528 then
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/XRoLLu/UWU/main/New%20BABFT'))()
+	loadstring(game:HttpGet('https://github.com/xSTronG30/Roblox-Scripts-Menu/raw/main/build%20a%20boat%20auto'))()
 else
 print("WRONG GAME")
 end
