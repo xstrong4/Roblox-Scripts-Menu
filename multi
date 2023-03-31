@@ -1,5 +1,5 @@
 local x = game.PlaceId
--- DOORS
+-- Answer or die
 if x == 11966456877 then
 	--loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/Door.lua'))()
 	loadstring(game:HttpGet('https://pastebin.com/raw/7AtGDUx1'))()
