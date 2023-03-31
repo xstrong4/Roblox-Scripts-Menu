@@ -2,7 +2,7 @@ local x = game.PlaceId
 -- Answer or die
 if x == 11966456877 then
 	--loadstring(game:HttpGet('https://raw.githubusercontent.com/xSTronG30/Roblox-Scripts-Menu/main/Door.lua'))()
-	loadstring(game:HttpGet('https://pastebin.com/raw/7AtGDUx1'))()
+	loadstring(game:HttpGet('https://github.com/xSTronG30/Roblox-Scripts-Menu/raw/main/Answer%20or%20die.lua'))()
 
 else
 print("WRONG GAME")
