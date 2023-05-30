@@ -1,27 +1,65 @@
 /**
- * @name Alexis Modern Discord Theme
- * @author Alexis | WyvernZu#0001
- * @authorLink https://twitter.com/WyvernZu
- * @version 21.07.22
- * @description A decluttered, simple, and modern theme for Discord.
- * @source https://github.com/AlexisJonsson/AlexisJonsson.github.io/tree/master/BetterDiscordAddons/Themes
- * @website https://alexisjonsson.com/
+    * @name Vibrant Glass
+    * @version 1.0
+    * @description Simple customizable glass theme.
+    * @author Kaynooo#8080
+    *
+    * @source https://github.com/Kayno0o/vibrant-glass-theme
+    * @invite XhPKd5x7Fz
+**/
+
+/*
+ __      ___ _                     _      _____ _               
+ \ \    / (_) |                   | |    / ____| |              
+  \ \  / / _| |__  _ __ __ _ _ __ | |_  | |  __| | __ _ ___ ___ 
+   \ \/ / | | '_ \| '__/ _` | '_ \| __| | | |_ | |/ _` / __/ __|
+    \  /  | | |_) | | | (_| | | | | |_  | |__| | | (_| \__ \__ \
+     \/   |_|_.__/|_|  \__,_|_| |_|\__|  \_____|_|\__,_|___/___/
+
 */
 
-@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/_res/UsrBgs.css");
-@import url("https://AlexisJonsson.github.io/BetterDiscordAddons/Themes/modern-discord.theme.source.css");
+@import url("https://raw.githack.com/Kayno0o/vibrant-glass-theme/main/glass_remote.theme.css");
 
-:root {
-    /*My Account Button*/
-    --username-button-width: 128px; /* Adjust the with of the username button to match your discord username lenght */
-    --username-button-padding: 6px; /* Padding for the username button */
-    --username-button-right-margin: 12px; /* Width between the username button and the window controls */
+/*
+to customize rgb color : https://www.google.com/search?q=color+picker and copy the RGB thing
+to create custom gradient : https://cssgradient.io/ and copy the linear-gradient
+*/
 
-    /*Server List*/
-    --server-icon-size: 32px;  /* Size of the server icons */
-    --server-outer-margin: 14px;  /* Spacing between the edge of the container and the server icons.*/
-    --server-spacing: 10px;  /* Spacing between each server icon*/
+/* DEFINE MAIN VARIABLES */
 
-    /*Server Info Bar*/
-    --app-info-bar-height: 48px; /* Height for container that holds the server name, info, actions and search */
+.theme-dark {
+    /*
+    name of the Discord window (top left)
+    default : "Vibrant Glass" */
+    --window-name: "Vibrant Glass";
+    /*
+    color of the Discord window name
+    default : rgb(255, 255, 255) */
+    --window-name-color: rgb(255, 255, 255);
+    /*
+    opacity, but lighter
+    default : 0.2 */
+    --light-opacity: 0.2;
+    /*
+    opacity used everywhere to make this glass effect 
+    default : 0.5 */
+    --opacity: 0.5;
+    /*
+    opacity, but darker
+    default : 0.75 */
+    --dark-opacity: 0.75;
+    /*
+    it's just the Discord background URL, it has to be a direct link (ending with .png, .jpg, .gif)
+    default : url('https://cdn.discordapp.com/attachments/696040243748536401/850445513542205531/1-IrFMpUu.png') */
+    --background-url: url('https://cdn.discordapp.com/attachments/696040243748536401/850445513542205531/1-IrFMpUu.png');
+    /*
+    background color used for opacity
+    default : 0, 0, 0 */
+    --background-color: 0, 0, 0;
 }
+
+/* BACKGROUND */
+
+.app-2rEoOp>.bg-h5JY_x {
+    background: var(--background-url) !important;
+    background-size: cover !important;
