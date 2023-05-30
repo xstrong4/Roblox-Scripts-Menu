@@ -1,38 +1,21 @@
 /**
- * @name Fluent Discord
- * @author TakosThings
- * @version 1.5.6
- * @description Fluent theme for Discord
- * @invite ZYrCacRuez
- * @source https://github.com/TakosThings/Fluent-Discord
+ * @name Dark Matter
+ * @author Tropical#8908, Hammock#3110
+ * @version 3.0.0
+ * @description A cold, dark & frosty theme.
+ * @source https://github.com/DiscordStyles/DarkMatter/
 */
-@import url(https://takosthings.github.io/Fluent-Discord/Fluent-Discord.css);
-/**
- * Start user options
- * Visit the wiki for information on this section
- * https://github.com/TakosThings/Fluent-Discord/wiki
-*/
-/**
- * Note on chat font size
- * You may want to change your chat font scaling to '14px' to match the font size in Windows.
- * This option is found in User settings > Appearance.
-*/
-/**
-  * Visit the wiki for in-depth help on changing the below variables: https://github.com/TakosThings/Fluent-Discord/wiki/Options
-  * You can change the accent colour by using the Colour Selector tool: https://takosthings.github.io/Fluent-Discord/color.html
-**/
-:root {
-  /* DefaultBlue */
-  --fluent-accent-hue-sat: 207, 100%;
-  --fluent-accent-lightness: 42%;
-  --fluent-text-on-accent-color: 0, 0, 0;
-  --fluent-acrylic-background: url(https://cdn.discordapp.com/attachments/862716886067445820/887579790289297408/Captured_Motion_27.jpg);
-  --fluent-acrylic-background-blur: 24px;
-  --fluent-acrylic-background-dimness: 75%;
-  --fluent-acrylic-background-saturate: 140%;
-  --fluent-guilds-icon-size: 24px;
-}
 
-/**
- * End user options
-*/
+@import url('https://DiscordStyles.github.io/DarkMatter/src/base.css');
+
+/* Variables */
+:root {
+    --avatar-size: 32px;
+    --background-image: url('https://i.imgur.com/7SbtKvw.png');
+    --home-image: url('https://i.imgur.com/233d55Y.gif');
+    --background-solid: #161921;
+    --background-solid-dark: #101218;
+    --background-solid-darker: #0c0e12;
+    --accent: 37, 172, 232;
+    --accent-alt: 29, 101, 134;
+}
