@@ -156,3 +156,11 @@ if x == 7549229959205224386 or x == 8888615802 then
 else
 print("WRONG GAME")
 end
+
+-- Rainbow friends 2
+if x == 13622981808 or x == 7991339063 then
+	--Script
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/xstrong4/Roblox-Scripts-Menu/main/rainbow%20friends%202'))()
+else
+print("WRONG GAME")
+end
