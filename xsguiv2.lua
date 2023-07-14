@@ -93,7 +93,8 @@ local MyButton = Tab1:AddButton({
 				end
 			end)
 		end
-coroutine.wrap(setInfinityJumpButton)()
+		coroutine.wrap(setInfinityJumpButton)()
+		print('Press V To Active')
     end,
     DoubleClick = false,
     Tooltip = 'Infinite Jump script'
