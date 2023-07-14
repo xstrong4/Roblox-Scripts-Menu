@@ -14,8 +14,10 @@ local Window = Library:CreateWindow({
     -- but you do not need to define them unless you are changing them :)
 
     Title = 'xSGui v2',
-    Center = true, 
+    Center = true,
     AutoShow = true,
+    TabPadding = 8,
+    MenuFadeTime = 0.2
 })
 
 -- You do not have to set your tabs & groups up this way, just a prefrence.
